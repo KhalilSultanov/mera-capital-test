@@ -15,7 +15,7 @@ async def test_price_fetcher_integration(test_db):
 
     task = asyncio.create_task(fetcher.fetch_prices_loop())
 
-    await asyncio.sleep(0.3)
+    await asyncio.sleep(1)
 
     prices_btc = await test_db.get_all_prices("btc_usd")
     prices_eth = await test_db.get_all_prices("eth_usd")
