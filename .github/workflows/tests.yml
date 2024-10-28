@@ -29,4 +29,4 @@ jobs:
 
       - name: Run tests
         run: |
-          pytest --asyncio-mode=auto
+          pytest tests/ --asyncio-mode=auto
