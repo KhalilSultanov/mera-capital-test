@@ -1,0 +1,16 @@
+version: '3.12'
+
+services:
+  fastapi-app:
+    build: .
+    container_name: fastapi-app
+    ports:
+      - "8000:8000"
+    volumes:
+      - crypto_prices_data:/app/data
+    environment:
+      - DATABASE_URL=sqlite+aiosqlite:///app/data/crypto_prices.db
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+
+volumes:
+  crypto_prices_data:
